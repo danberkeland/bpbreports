@@ -1,34 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
 import Amplify from "aws-amplify";
 import awsconfig from "./aws-exports";
 
 import "./App.css";
-import useWhoWhats from "./hooks/useWhoWhats";
 import useDatabase from "./hooks/useDatabase";
 
-import Loader from './Loader';
+import Loader from "./Loader";
 
+import AppRoutes from "./AppRoutes";
+import Nav from "./Nav";
+
+import styled from "styled-components";
+
+const NavLock = styled.div`
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+`;
+
+const BodyLock = styled.div`
+  position: relative;
+  width: 100%;
+  top: 100px;
+`;
 
 Amplify.configure(awsconfig);
 
 function App() {
-
-  
-
-  let date;
-  let location;
-
   useDatabase();
-  let whoWhats = useWhoWhats(date, location);
-  let whatBake = whoWhats.whatBake
 
   return (
     <React.Fragment>
       <Loader />
-      <div className="App">
-        <h1>Back Porch Bakery Reports</h1>
-        {whatBake && whatBake.map((prod) => prod.prodName)}
-      </div>
+      <NavLock>
+        <Nav />
+      </NavLock>
+      <BodyLock>
+        <AppRoutes />
+      </BodyLock>
     </React.Fragment>
   );
 }

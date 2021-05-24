@@ -1,11 +1,14 @@
-import useWhatBake from "./buildWhoWhats/useWhatBake";
+import useWhatDeliv from "./buildWhoWhats/useWhatDeliv";
+import useWhoDeliv from "./buildWhoWhats/useWhoDeliv";
 
-const useWhoWhats = (date, location) => {
+const useWhoWhats = (date) => {
  
-  const whatBake = useWhatBake(date, location);
+  const whatDeliv = useWhatDeliv(date);
+  const whoDeliv = useWhoDeliv(date);
 
   const database = {
-    whatBake: whatBake,
+    whatDeliv: whatDeliv,
+    whoDeliv: whoDeliv
   };
 
   return database;
