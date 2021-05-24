@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Amplify from "aws-amplify";
 import awsconfig from "./aws-exports";
 
@@ -12,12 +12,15 @@ import Loader from './Loader';
 Amplify.configure(awsconfig);
 
 function App() {
+
+  
+
   let date;
   let location;
 
   useDatabase();
   let whoWhats = useWhoWhats(date, location);
-  const whatBake = whoWhats.whatBake;
+  let whatBake = whoWhats.whatBake
 
   return (
     <React.Fragment>

@@ -1,5 +1,7 @@
 import React from "react";
 
+import { useSelector } from "react-redux";
+
 import Progress from "@material-ui/core/CircularProgress";
 
 import styled from "styled-components";
@@ -24,13 +26,17 @@ const LoaderBack = styled.div`
 `;
 
 const Loader = () => {
+  const howManyDBsLoaded = useSelector((state) => state.dbCounter);
+
   return (
     <React.Fragment>
-      <LoaderBack>
-        <LoaderSetup>
-          <Progress />
-        </LoaderSetup>
-      </LoaderBack>
+      {howManyDBsLoaded % 7 !== 0 && (
+        <LoaderBack>
+          <LoaderSetup>
+            <Progress />
+          </LoaderSetup>
+        </LoaderBack>
+      )}
     </React.Fragment>
   );
 };

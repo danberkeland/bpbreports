@@ -46,3 +46,15 @@ export const updateDoughComponents = (payload) => {
         payload: payload
     };
 };
+
+export const oneDBLoaded = () => {
+    return {
+        type: 'INCREMENT'
+    };
+};
+
+export const clearDB = () => {
+    return {
+        type: 'CLEAR'
+    };
+};

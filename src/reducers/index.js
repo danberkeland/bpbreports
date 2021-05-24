@@ -6,6 +6,7 @@ import { standingReducer } from './standing';
 import { orderssReducer } from './orders';
 import { doughssReducer } from './doughs';
 import { doughComponentsReducer } from './doughComponents';
+import { dbCounterReducer } from './dbcounter';
 
 export const allReducers = combineReducers({
     customers: customersReducer,
@@ -14,5 +15,6 @@ export const allReducers = combineReducers({
     standing: standingReducer,
     orders: orderssReducer,
     doughs: doughssReducer,
-    doughComponents: doughComponentsReducer
+    doughComponents: doughComponentsReducer,
+    dbCounter: dbCounterReducer
 })

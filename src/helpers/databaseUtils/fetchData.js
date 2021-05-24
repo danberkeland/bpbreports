@@ -2,6 +2,7 @@
 import { API, graphqlOperation } from "aws-amplify";
 import handleDatabaseError from "../errorHandling/databaseError";
 
+
 const fetchData = async (func, info, limit) => {
   try {
     const data = await API.graphql(graphqlOperation(func, { limit: limit }));
