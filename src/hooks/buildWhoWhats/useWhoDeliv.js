@@ -1,12 +1,13 @@
-import { useSelector } from 'react-redux'
+import { sortAtoZDataByIndex } from '../../helpers/dataSortHelpers'
+import { BuildFullOrders } from '../../helpers/fullOrdersBuilders'
 
 const useWhoDeliv = (date) => {
- 
-  const whoDeliv = useSelector(state => state.customers.custList)
-  // build full orders for date
-  // reduce to whoDeliv array
 
-  return whoDeliv
+  let fullOrders = BuildFullOrders(date) 
+  fullOrders && sortAtoZDataByIndex(fullOrders, "custName")
+  
+  return fullOrders
 
 }
+
 export default useWhoDeliv;

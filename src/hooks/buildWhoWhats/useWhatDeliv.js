@@ -1,15 +1,13 @@
 
-import { useSelector } from 'react-redux'
-
-
+import { sortAtoZDataByIndex } from '../../helpers/dataSortHelpers'
+import { BuildFullOrders } from '../../helpers/fullOrdersBuilders'
 
 const useWhatDeliv = (date) => {
- 
-  const whatDeliv = useSelector(state => state.products.prodList)
-  // build full orders for date
-  // construct whatDeliv array by product
+
+  let fullOrders = BuildFullOrders(date) 
+  fullOrders && sortAtoZDataByIndex(fullOrders, "prodName")
   
-  return whatDeliv
+  return fullOrders
 
 }
 

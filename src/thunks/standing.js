@@ -3,7 +3,7 @@ import { listStandings } from '../graphql/queries'
 import fetchData from '../helpers/databaseUtils/fetchData'
 
 const finishTrans = (dispatch, data, attr) => {
-  dispatch(updateStanding({ routeList: data }))
+  dispatch(updateStanding({ standingList: data }))
   dispatch(oneDBLoaded())
 }
 
