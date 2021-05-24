@@ -6,7 +6,7 @@ import "./App.css";
 import useWhoWhats from "./hooks/useWhoWhats";
 import useDatabase from "./hooks/useDatabase";
 
-import { ProgressSpinner } from 'primereact/progressspinner';
+import Loader from './Loader';
 
 
 Amplify.configure(awsconfig);
@@ -21,7 +21,7 @@ function App() {
 
   return (
     <React.Fragment>
-      <ProgressSpinner style={{width: '100px', height: '100px'}} strokeWidth="3" fill="#BBBBBB" animationDuration=".5s"/>
+      <Loader />
       <div className="App">
         <h1>Back Porch Bakery Reports</h1>
         {whatBake && whatBake.map((prod) => prod.prodName)}
